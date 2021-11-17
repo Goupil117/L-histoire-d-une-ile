@@ -1,26 +1,50 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include<stdlib.h>
+#include<stdio.h>
+#include<SDL.h>
 
-int main(void)
+void SDL_Exit_With_Error(const char *message);
+
+int main(int argc, char *argv[])
 {
-    unsigned char tours = 0;
-    unsigned char choix = 0;
+	SDL_Window *ecran = NULL;
+	SDL_Renderer *rendu=NULL;
 
-    printf("> Bienvenue sur le jeu de l ile deserte\n");
-    printf("> Menu :\n 1. Solo\n");
-    printf("user : ");
-    scanf("%d", &choix);
+	if(SDL_Init(SDL_INIT_VIDEO) != 0)
+	{
+		SDL_Exit_With_Error("Iniitialisation SDL");
+	}
 
-    if(choix==1)
-    {
-        printf("> Partie solo en cours de lancement");
-    }
-    else
-    {
-        printf("> Je n ai pas compris votre demande !");
-    }
-    return EXIT_SUCCESS;
+	ecran = SDL_CreateWindow("L'histoire d'une île deserte", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+
+	if(ecran == NULL)
+	{
+		SDL_Exit_With_Error("Creation fenetre echouee");
+	}
+
+	rendu = SDL_CreateRenderer(ecran, -1, SDL_RENDERER_SOFTWARE);
+
+	if(rendu == NULL)
+	{
+		SDL_Exit_With_Error("Creation rendu echoue");
+	}
+
+	SDL_DestroyRenderer(rendu);
+	SDL_DestroyWindow(ecran);
+	SDL_Quit();
+
+	return EXIT_SUCCESS; //return 0
 }
 
-//exit(EXIT_FAILURE);
+void SDL_Exit_With_Error(const char *message)
+{
+	// fichier txt pour les logs d'erreur
+	fprintf(stderr, "Erreur %s : %s\n", message, SDL_GetError());
+	SDL_Quit();
+
+	exit(EXIT_FAILURE);
+}
+
+/*
+	Commande pour compiler à la ligne de commande :
+	Pour inclure la lib SDL : gcc src/main.c -o bin/programme -I include -L lib -lmingw32 -lSDL2main -lSDL2
+*/
