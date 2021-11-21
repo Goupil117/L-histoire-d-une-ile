@@ -1,3 +1,5 @@
+#include "Personnage.h"
+
 /*
      Fonction pour initialiser les stats de base
 */
