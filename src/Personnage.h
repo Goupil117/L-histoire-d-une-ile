@@ -13,4 +13,13 @@ typedef struct Joueur
     unsigned char evenement_ile;
 }joueur;
 
+// Fonction pour initialiser les stats de base
+unsigned char initialisationStats(Personnage* Tableau_personnage, nombreJoueur);
+
+// Fonction pour initialiser les rôles des joueurs
+void initialisationRole(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard);
+
+// Fonction pour initialiser les comportements des joueurs
+void initialisationComportement(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard);
+
 #endif
