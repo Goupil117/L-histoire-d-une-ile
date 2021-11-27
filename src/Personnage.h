@@ -1,7 +1,8 @@
 #ifndef DEF_Personnage
 #define DEF_Personnage
 
-typedef struct Joueur
+typedef struct Joueur Joueur;
+struct Joueur
 {
     char nom[41];
     unsigned char role;
@@ -14,12 +15,12 @@ typedef struct Joueur
 }joueur;
 
 // Fonction pour initialiser les stats de base
-unsigned char initialisationStats(Personnage* Tableau_personnage, nombreJoueur);
+unsigned char initialisationStats(Joueur* Tableau_personnage, unsigned char nombreJoueur);
 
 // Fonction pour initialiser les rôles des joueurs
-void initialisationRole(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard);
+void initialisationRole(Joueur* Tableau_personnage, unsigned char numero, unsigned char hasard);
 
 // Fonction pour initialiser les comportements des joueurs
-void initialisationComportement(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard);
+void initialisationComportement(Joueur* Tableau_personnage, unsigned char numero, unsigned char hasard);
 
 #endif

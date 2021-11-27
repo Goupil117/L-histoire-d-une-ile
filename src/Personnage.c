@@ -4,7 +4,7 @@
      Fonction pour initialiser les stats de base
 */
 
-unsigned char initialisationStats(Personnage* Tableau_personnage, nombreJoueur)
+unsigned char initialisationStats(Joueur* Tableau_personnage, unsigned char nombreJoueur)
 {
     unsigned char verif = 0;
 
@@ -17,7 +17,7 @@ unsigned char initialisationStats(Personnage* Tableau_personnage, nombreJoueur)
         Tableau_personnage[i].sommeil = 100;
 
         // vérification de la bonne initialisation des stats
-        if(Tableau_personnage[i].vie = 100 && Tableau_personnage[i].eau == 100 && Tableau_personnage[i].nourriture == 100 && Tableau_personnage[i].sommeil = 100;)
+        if(Tableau_personnage[i].vie == 100 && Tableau_personnage[i].eau == 100 && Tableau_personnage[i].nourriture == 100 && Tableau_personnage[i].sommeil == 100)
         {
             verif++;
         }
@@ -38,7 +38,7 @@ unsigned char initialisationStats(Personnage* Tableau_personnage, nombreJoueur)
     Fonction pour initialiser les rôles des joueurs
 */
 
-void initialisationRole(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard)
+void initialisationRole(Joueur* Tableau_personnage, unsigned char numero, unsigned char hasard)
 {
     unsigned char verif = 0;
 
@@ -120,7 +120,7 @@ void initialisationRole(Personnage* Tableau_personnage, unsigned char numero, un
      Fonction pour initialiser les comportements des joueurs
 */
 
-void initialisationComportement(Personnage* Tableau_personnage, unsigned char numero, unsigned char hasard)
+void initialisationComportement(Joueur* Tableau_personnage, unsigned char numero, unsigned char hasard)
 {
     unsigned char verif = 0;
 
@@ -192,7 +192,7 @@ void initialisationComportement(Personnage* Tableau_personnage, unsigned char nu
 
     if(verif == 1) 
     {
-        return 1
+        return 1;
     }
 
     return 0;
